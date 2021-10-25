@@ -1,4 +1,5 @@
 import { RedirectUrl } from '../../../domain/usecases';
+import { LINKS } from '../../../utils/config/constants';
 import {
   ListShortUrlByCodeRepository,
   UpdateShortUrlRepository,
@@ -15,9 +16,15 @@ export class DbRedirectUrl implements RedirectUrl {
       params.code,
     );
 
-    if (!short || !short.status) {
+    if (!short) {
       return {
-        link: 'https://pagtel.com.br/not-found',
+        link: LINKS.NOT_FOUND,
+      };
+    }
+
+    if (!short.status) {
+      return {
+        link: LINKS.ACCESS,
       };
     }
 

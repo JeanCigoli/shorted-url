@@ -5,6 +5,12 @@ export const SERVER = {
   PORT: process.env.PORT || 3333,
 };
 
+export const LINKS = {
+  URL: process.env.URL || '',
+  ACCESS: process.env.URL_ACCESS || '',
+  NOT_FOUND: process.env.URL_NOT_FOUND || '',
+};
+
 export const DATABASE = {
   DB_NAME: process.env.DATABASE_NAME || '',
   DB_DIALECT: process.env.DATABASE_DIALECT || 'mssql',

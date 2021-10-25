@@ -1,6 +1,6 @@
 import { v4 as uuid } from 'uuid';
 import { CreateShortUrl } from '../../../domain/usecases';
-import { generateCode } from '../../../utils/code';
+import { LINKS } from '../../../utils/config/constants';
 import { CreateShortUrlRepository } from '../../protocols/db/mongo';
 import { AddDay, GenerateCode } from '../../protocols/utils';
 
@@ -27,7 +27,7 @@ export class DbCreateShortUrl implements CreateShortUrl {
     });
 
     return {
-      link: `http://localhost:3355/rr/${code}`,
+      link: `${LINKS.URL}${code}`,
     };
   }
 }
